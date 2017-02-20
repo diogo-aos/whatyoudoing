@@ -1,3 +1,4 @@
 *.pyc
 **cache*
 **.sqlite3
+**egg-info

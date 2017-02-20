@@ -1,0 +1,7 @@
+#!/usr/bin/env python
+
+import logwork
+from curses import wrapper
+
+if __name__ == '__main__':
+    wrapper(logwork.curses_main)

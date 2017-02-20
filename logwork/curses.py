@@ -5,14 +5,12 @@ from curses.textpad import Textbox, rectangle
 import time
 from os.path import expanduser, join
 
-from db import *
-from task import Task
+from .db import *
+from .task import Task
 
 
 def main(stdscr):
     PERIOD = 0.25
-    # task_name = input('task name:')
-    # print('task started at {}'.format(datetime.now()))
 
     stdscr.clear()  # clear screen
     stdscr.addstr(0,0, "Task name:")
@@ -20,8 +18,8 @@ def main(stdscr):
     task_name = stdscr.getstr(1,0,30)
     curses.noecho()
 
-    # db_path = join(expanduser('~'),'.task_db.sqlite3')
-    db_path = 'test.sqlite3'
+    db_path = join(expanduser('~'),'.task_db.sqlite3')
+    # db_path = 'test.sqlite3'
 
     con = sqlite3.connect(db_path)
     create_tables(con)
@@ -97,5 +95,3 @@ def main(stdscr):
 
         if c == '\n':
             break
-
-curses.wrapper(main)
