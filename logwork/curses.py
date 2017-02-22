@@ -86,6 +86,8 @@ def main(stdscr):
 
     # Get resulting contents
     message = box.gather()
+    task.commit(message)
+
     stdscr.clear()  # clear screen
     stdscr.addstr(0,0, "finished (press enter to exit)".format(len(message)))
 

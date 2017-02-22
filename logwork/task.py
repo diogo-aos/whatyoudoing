@@ -67,12 +67,12 @@ class Task:
         self.db_con.close()
 
 def get_active_window_name():
-    windowname = Popen(['xdotool', 'getactivewindow'],  stdout=PIPE)
-    windowname.wait()
+    windowname = Popen(['xdotool', 'getactivewindow'],  stdout=PIPE, stderr=PIPE)
+    output, err = windowname.communicate()
     try:
-        window_num = int(windowname.stdout.read())
+        window_num = int(output)
     except:
         return None
-    name = Popen(['xdotool', 'getwindowname', str(window_num)],  stdout=PIPE)
-    name.wait()
-    return name.stdout.read().decode('utf-8')
+    name = Popen(['xdotool', 'getwindowname', str(window_num)],  stdout=PIPE, stderr=PIPE)
+    output, err = name.communicate()
+    return output.decode('utf-8')
