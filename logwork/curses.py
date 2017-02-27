@@ -57,8 +57,8 @@ def main(stdscr):
             if not paused:
                 stdscr.addstr(5,0, "p\n")
                 paused = True
-                task = task.pause()  # pause returns new task
             else:
+                task = task.pause()  # pause returns new task
                 task.start()
                 stdscr.addstr(1,0, "Started: {}".format(task.ts_start))
                 paused = False

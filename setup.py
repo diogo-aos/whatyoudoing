@@ -4,7 +4,7 @@ params = {}
 params['scripts'] = ['bin/logwork']
 
 setup(name='logwork',
-      version='0.04',
+      version='0.05',
       description='simple work logging with active window monitoring',
       url='',
       author='Diogo Silva',
