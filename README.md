@@ -1,16 +1,17 @@
+# WhatYouDoing  v0.1
+
 Simple program to log what you were doing in the last X minutes.
 
 # Roadmap
-0.1 - hotkeys, option to prefill with previous entry
-0.2 - package it for pypi
-0.3 - store screenshot
-0.4 - config file + gui
-0.5 - real database
-0.6 - cross platform
-0.7 - make it installable
-0.8 - simple analytics
+| version | description                                              |
+|:-------:|----------------------------------------------------------|
+|   0.1   | hotkeys, option to prefill with previous entry           |
+|   0.2   | split tasks, task list, select and fill                  |
+|   0.3   | real database, store screenshot                          |
+|   0.4   | config file + gui                                        |
+|   0.5   | package it for pypi, make it installable, cross platform |
+|   0.6   | simple analytics                                         |
 
- 
 # Feature list
 - split different tasks in same entry
 - show list of all tasks, newer first, on right side
@@ -23,5 +24,6 @@ Simple program to log what you were doing in the last X minutes.
 - keyboard shortcut to finish GUI form
 - autocompelte task
 - pomodoro integration?
+- make video from sreenshots (backend?)
 
 
