@@ -2,6 +2,17 @@
 
 Simple program to log what you were doing in the last X minutes.
 
+# Controls
+| hotkey                         | description                                |
+|--------------------------------|--------------------------------------------|
+| Ctrl + Enter (carriage return) | Save and close                             | 
+| Ctrl + Down arrow              | Select downward task                       |
+| Ctrl + up arrow                | Select upward task                         |
+| Ctrl + left arrow              | Copy text from selected task to input are. |
+
+
+
+
 # Roadmap
 | version | description                                              |
 |:-------:|----------------------------------------------------------|
@@ -25,5 +36,6 @@ Simple program to log what you were doing in the last X minutes.
 - autocompelte task
 - pomodoro integration?
 - make video from sreenshots (backend?)
+- tray icon
 
 

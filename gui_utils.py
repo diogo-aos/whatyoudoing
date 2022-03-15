@@ -1,4 +1,4 @@
-from typing import Union, List, Callable, Optional
+from typing import Union, List, Callable, Optional, Iterable, Any
 import logging
 
 import dearpygui.dearpygui as dpg
@@ -94,3 +94,47 @@ class MultiKeyDown:
 class KeyCombination:
     def __init__(self):
         pass
+
+
+class SelectableList:
+    def __init__(self, items: Iterable[Any],
+                 title: str = '',
+                 item_show_cb: Optional[Callable[[Any], str]] = None):
+        if len(items) == 0:
+            raise ValueError('iterable is empty')
+        self._items = items
+        self._gui_items = []
+        self._selected = 0
+        self._title = title
+        if item_show_cb is not None:
+            self._item_show_cb = item_show_cb
+        else:
+            self._item_show_cb = lambda x: str(x)
+
+    def create(self):
+        with dpg.group():
+            dpg.add_text(self._title)
+            for i, item in enumerate(self._items):
+                item_label = self._item_show_cb(item)
+                gui_item = dpg.add_text(item_label)
+                self._gui_items.append(gui_item)
+        self.select_other(0)
+
+    def select_other(self, inc: int):
+        old_selected = self._selected
+        label_for_old = self._item_show_cb(self._items[old_selected])
+
+        new_selected = self._selected + inc
+        if new_selected < 0:
+            new_selected = 0
+        if new_selected > len(self._items):
+            new_selected = len(self._items)
+
+        label_for_new = '-> ' + self._item_show_cb(self._items[new_selected])
+
+        dpg.set_value(self._gui_items[old_selected], label_for_old)
+        dpg.set_value(self._gui_items[new_selected], label_for_new)
+        self._selected = new_selected
+
+    def get_selected(self):
+        return self._item_show_cb(self._items[self._selected])
